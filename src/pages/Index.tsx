@@ -1,15 +1,98 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [name, setName] = useState('Александр Воронцов');
+  const [position, setPosition] = useState('Директор по развитию');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-      <span className="absolute bottom-8 left-1/2 -translate-x-1/2 inline-block bg-[#FF6637] text-white text-sm px-4 py-2 rounded-full whitespace-nowrap">
-        Подождите 5 минут, Юра создает первую версию проекта с нуля
-      </span>
+    <div className="min-h-screen bg-[#f4f2ee] text-neutral-900 font-sans flex flex-col">
+      <header className="border-b border-neutral-300/70 px-8 py-6">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 border border-neutral-900 flex items-center justify-center">
+              <Icon name="IdCard" size={18} />
+            </div>
+            <span className="font-serif text-xl tracking-wide">Конференц-табличка</span>
+          </div>
+          <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 hidden sm:block">
+            Corporate · 100 × 50 мм
+          </span>
+        </div>
+      </header>
+
+      <main className="flex-1 px-8 py-12">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
+          <section className="animate-fade-in">
+            <p className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-3">
+              Генератор
+            </p>
+            <h1 className="font-serif text-4xl sm:text-5xl leading-tight mb-8">
+              Именная табличка<br />для конференции
+            </h1>
+
+            <div className="space-y-7">
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+                  Имя и фамилия
+                </label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Введите имя"
+                  className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
+                />
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+                  Должность
+                </label>
+                <input
+                  value={position}
+                  onChange={(e) => setPosition(e.target.value)}
+                  placeholder="Введите должность"
+                  className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
+                />
+              </div>
+            </div>
+
+            <button
+              onClick={() => window.print()}
+              className="mt-10 inline-flex items-center gap-2 bg-neutral-900 text-[#f4f2ee] px-7 py-3.5 text-sm uppercase tracking-[0.15em] hover:bg-neutral-700 transition-colors"
+            >
+              <Icon name="Printer" size={16} />
+              Печать таблички
+            </button>
+          </section>
+
+          <section className="flex flex-col items-center lg:items-end">
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 mb-4 self-start lg:self-center">
+              Предпросмотр
+            </p>
+            <div
+              id="badge-print"
+              className="bg-white border border-neutral-200 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] flex flex-col items-center justify-center text-center px-8"
+              style={{ width: '400px', height: '200px' }}
+            >
+              <div className="w-10 h-px bg-neutral-900 mb-5" />
+              <h2 className="font-serif text-3xl text-neutral-900 leading-tight">
+                {name || 'Имя Фамилия'}
+              </h2>
+              <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
+                {position || 'Должность'}
+              </p>
+              <div className="w-10 h-px bg-neutral-900 mt-5" />
+            </div>
+            <p className="mt-4 text-xs text-neutral-500">
+              Реальный размер при печати — 100 × 50 мм
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <footer className="px-8 py-6 text-center text-xs text-neutral-400 tracking-wide">
+        Строгий корпоративный стиль · Cormorant Garamond
+      </footer>
     </div>
   );
 };

@@ -99,3 +99,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media print {
+  @page {
+    size: 100mm 50mm;
+    margin: 0;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #badge-print,
+  #badge-print * {
+    visibility: visible;
+  }
+  #badge-print {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100mm;
+    height: 50mm;
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}
