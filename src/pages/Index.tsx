@@ -4,6 +4,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [name, setName] = useState('Веретенникова Светлана Александровна');
   const [position, setPosition] = useState('Директор по развитию');
+  const [city, setCity] = useState('Кузнецк');
 
   const nameSize =
     name.length > 28 ? 'text-xl' : name.length > 20 ? 'text-2xl' : 'text-3xl';
@@ -57,6 +58,17 @@ const Index = () => {
                   className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
                 />
               </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+                  Город
+                </label>
+                <input
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Введите город"
+                  className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
+                />
+              </div>
             </div>
 
             <button
@@ -84,6 +96,11 @@ const Index = () => {
               <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
                 {position || 'Должность'}
               </p>
+              {city && (
+                <p className="mt-1.5 text-[10px] uppercase tracking-[0.3em] text-neutral-400">
+                  {city}
+                </p>
+              )}
               <div className="w-10 h-px bg-neutral-900 mt-5" />
             </div>
             <p className="mt-4 text-xs text-neutral-500">
