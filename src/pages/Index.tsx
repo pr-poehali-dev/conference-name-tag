@@ -126,6 +126,7 @@ const Index = () => {
                 width: '340px',
                 height: '200px',
                 boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.2)',
+                transform: 'rotate(-1.8deg)',
               }}
             >
               <div className="w-10 h-px bg-neutral-900 mb-5" />
