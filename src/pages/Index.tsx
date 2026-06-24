@@ -5,6 +5,8 @@ const Index = () => {
   const [name, setName] = useState('Веретенникова Светлана Александровна');
   const [position, setPosition] = useState('Директор по развитию');
   const [city, setCity] = useState('Кузнецк');
+  const [party, setParty] = useState('Член Партии Единая Россия');
+  const [org, setOrg] = useState('Резидент ОО «Опора России»');
 
   const nameSize =
     name.length > 28 ? 'text-xl' : name.length > 20 ? 'text-2xl' : 'text-3xl';
@@ -69,6 +71,28 @@ const Index = () => {
                   className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
                 />
               </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+                  Партия / статус
+                </label>
+                <input
+                  value={party}
+                  onChange={(e) => setParty(e.target.value)}
+                  placeholder="Например: Член Партии Единая Россия"
+                  className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
+                />
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+                  Организация
+                </label>
+                <input
+                  value={org}
+                  onChange={(e) => setOrg(e.target.value)}
+                  placeholder="Например: Резидент ОО «Опора России»"
+                  className="w-full bg-transparent border-b border-neutral-400 py-2 text-lg outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-400"
+                />
+              </div>
             </div>
 
             <button
@@ -87,7 +111,7 @@ const Index = () => {
             <div
               id="badge-print"
               className="bg-white border border-neutral-200 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] flex flex-col items-center justify-center text-center px-8"
-              style={{ width: '400px', height: '200px' }}
+              style={{ width: '400px', height: '220px' }}
             >
               <div className="w-10 h-px bg-neutral-900 mb-5" />
               <h2 className={`font-serif ${nameSize} text-neutral-900 leading-tight transition-all`}>
@@ -101,7 +125,12 @@ const Index = () => {
                   {city}
                 </p>
               )}
-              <div className="w-10 h-px bg-neutral-900 mt-5" />
+              {(party || org) && (
+                <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-neutral-400 leading-relaxed px-4">
+                  {[party, org].filter(Boolean).join(' · ')}
+                </p>
+              )}
+              <div className="w-10 h-px bg-neutral-900 mt-4" />
             </div>
             <p className="mt-4 text-xs text-neutral-500">
               Реальный размер при печати — 100 × 50 мм
