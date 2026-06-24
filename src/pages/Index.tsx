@@ -2,8 +2,11 @@ import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [name, setName] = useState('Александр Воронцов');
+  const [name, setName] = useState('Веретенникова Светлана Александровна');
   const [position, setPosition] = useState('Директор по развитию');
+
+  const nameSize =
+    name.length > 28 ? 'text-xl' : name.length > 20 ? 'text-2xl' : 'text-3xl';
 
   return (
     <div className="min-h-screen bg-[#f4f2ee] text-neutral-900 font-sans flex flex-col">
@@ -75,7 +78,7 @@ const Index = () => {
               style={{ width: '400px', height: '200px' }}
             >
               <div className="w-10 h-px bg-neutral-900 mb-5" />
-              <h2 className="font-serif text-3xl text-neutral-900 leading-tight">
+              <h2 className={`font-serif ${nameSize} text-neutral-900 leading-tight transition-all`}>
                 {name || 'Имя Фамилия'}
               </h2>
               <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
