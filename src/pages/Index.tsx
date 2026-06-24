@@ -109,9 +109,24 @@ const Index = () => {
               Предпросмотр
             </p>
             <div
+              className="relative w-full rounded-sm overflow-hidden flex items-center justify-center"
+              style={{
+                backgroundImage: 'url(https://cdn.poehali.dev/projects/38990285-0136-4b1a-8abb-e468aedd2d68/files/7159fd79-e9f3-4ab0-ac61-701b18ce3f37.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '320px',
+                padding: '40px 24px',
+              }}
+            >
+              <div className="absolute inset-0 bg-black/20" />
+            <div
               id="badge-print"
-              className="bg-white border border-neutral-200 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] flex flex-col items-center justify-center text-center px-8"
-              style={{ width: '400px', height: '230px' }}
+              className="relative bg-white flex flex-col items-center justify-center text-center px-8"
+              style={{
+                width: '340px',
+                height: '200px',
+                boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.2)',
+              }}
             >
               <div className="w-10 h-px bg-neutral-900 mb-5" />
               <h2 className={`font-serif ${nameSize} text-neutral-900 leading-tight transition-all`}>
@@ -136,6 +151,7 @@ const Index = () => {
                 </p>
               )}
               <div className="w-10 h-px bg-neutral-900 mt-4" />
+            </div>
             </div>
             <p className="mt-4 text-xs text-neutral-500">
               Реальный размер при печати — 100 × 50 мм
