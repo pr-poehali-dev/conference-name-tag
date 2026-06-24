@@ -133,9 +133,11 @@ const Index = () => {
               <h2 className={`font-serif ${nameSize} text-neutral-900 leading-tight transition-all`}>
                 {name || 'Имя Фамилия'}
               </h2>
-              <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
-                {position || 'Должность'}
-              </p>
+              {position && (
+                <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
+                  {position}
+                </p>
+              )}
               {party && (
                 <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-neutral-400 px-4">
                   {party}
@@ -147,7 +149,7 @@ const Index = () => {
                 </p>
               )}
               {city && (
-                <p className="mt-1.5 text-[10px] uppercase tracking-[0.3em] text-neutral-400">
+                <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-neutral-700 font-medium">
                   {city}
                 </p>
               )}
