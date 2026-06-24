@@ -3,10 +3,10 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [name, setName] = useState('Веретенникова Светлана Александровна');
-  const [position, setPosition] = useState('Директор по развитию');
+  const [position, setPosition] = useState('');
   const [city, setCity] = useState('Кузнецк');
   const [party, setParty] = useState('Член Партии Единая Россия');
-  const [org, setOrg] = useState('Резидент ОО «Опора России»');
+  const [org, setOrg] = useState('Резидент Общероссийской общественной организации «Опора России»');
 
   const nameSize =
     name.length > 28 ? 'text-xl' : name.length > 20 ? 'text-2xl' : 'text-3xl';
@@ -111,7 +111,7 @@ const Index = () => {
             <div
               id="badge-print"
               className="bg-white border border-neutral-200 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] flex flex-col items-center justify-center text-center px-8"
-              style={{ width: '400px', height: '220px' }}
+              style={{ width: '400px', height: '230px' }}
             >
               <div className="w-10 h-px bg-neutral-900 mb-5" />
               <h2 className={`font-serif ${nameSize} text-neutral-900 leading-tight transition-all`}>
@@ -125,9 +125,14 @@ const Index = () => {
                   {city}
                 </p>
               )}
-              {(party || org) && (
-                <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-neutral-400 leading-relaxed px-4">
-                  {[party, org].filter(Boolean).join(' · ')}
+              {party && (
+                <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-neutral-400 px-4">
+                  {party}
+                </p>
+              )}
+              {org && (
+                <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-neutral-400 leading-snug px-4">
+                  {org}
                 </p>
               )}
               <div className="w-10 h-px bg-neutral-900 mt-4" />
