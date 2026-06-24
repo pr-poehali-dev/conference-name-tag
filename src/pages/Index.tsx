@@ -120,11 +120,6 @@ const Index = () => {
               <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-600">
                 {position || 'Должность'}
               </p>
-              {city && (
-                <p className="mt-1.5 text-[10px] uppercase tracking-[0.3em] text-neutral-400">
-                  {city}
-                </p>
-              )}
               {party && (
                 <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-neutral-400 px-4">
                   {party}
@@ -133,6 +128,11 @@ const Index = () => {
               {org && (
                 <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-neutral-400 leading-snug px-4">
                   {org}
+                </p>
+              )}
+              {city && (
+                <p className="mt-1.5 text-[10px] uppercase tracking-[0.3em] text-neutral-400">
+                  {city}
                 </p>
               )}
               <div className="w-10 h-px bg-neutral-900 mt-4" />
